@@ -1,0 +1,7 @@
+<?php $c=new mysqli("localhost","root","","sap_mm_system"); $r=$c->query("SELECT * FROM vendors"); ?>
+<a href="index.php">← Back</a>
+<h2>Vendor Master</h2>
+<table border=1 cellpadding=10>
+<tr><?php foreach($r->fetch_fields() as $f) echo "<th>{$f->name}</th>"; ?></tr>
+<?php while($row=$r->fetch_assoc()){ echo "<tr>"; foreach($row as $v) echo "<td>$v</td>"; echo "</tr>"; } ?>
+</table>
